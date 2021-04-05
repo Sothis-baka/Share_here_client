@@ -18,14 +18,6 @@ body::-webkit-scrollbar-track {
   background: #ddd;
 }
 
-#homePage{
-  min-width: 680px;
-
-  background-image: url("../sources/pexels-simon-berger-1323550.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-
 *{
   font-family: 'Source Sans Pro', sans-serif;
 }

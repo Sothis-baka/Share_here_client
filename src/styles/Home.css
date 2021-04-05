@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Source+Sans+Pro:wght@300;400;600&family=VT323&family=Oxygen:wght@300&family=Pacifico&display=swap');
 
+#homePage{
+    min-width: 680px;
+    height: 100vh;
+
+    background-image: url("../sources/pexels-simon-berger-1323550.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 .mod{
     margin: 1em;
     padding: 1em;
