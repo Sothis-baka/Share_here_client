@@ -2,11 +2,11 @@
 
 #homePage{
     min-width: 680px;
-    height: 100vh;
 
     background-image: url("../sources/pexels-simon-berger-1323550.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: 100% 100vh;
+    background-attachment: fixed;
 }
 
 .mod{
