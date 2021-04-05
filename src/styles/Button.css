@@ -1,0 +1,59 @@
+button{
+    position: relative;
+
+    border: none;
+    outline: none;
+
+    border-radius: 4px;
+    cursor: pointer;
+
+    box-shadow:inset 2px 2px 2px 0 rgba(255,255,255,.5);
+}
+
+.btn-1{
+    color: aliceblue;
+    background-color: #81ecec;
+}
+
+.btn-1:hover{
+    background-color: #00cec9;
+    box-shadow:inset 2px 2px 2px 0 rgba(255,255,255,.5);
+}
+
+input[type=submit]{
+    box-sizing: border-box;
+
+    border: none;
+    border-radius: 8px;
+    outline: none;
+
+    height: 2.4em;
+    width: 8em;
+
+    margin-top: 1em;
+
+    font-size: 2em;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+#signInBtn{
+    color: aliceblue;
+    background-color: #81ecec;
+}
+
+#signInBtn:hover{
+    background-color: #00cec9;
+}
+
+#registerBtn{
+    width: 7em;
+
+    color: aliceblue;
+    background-color: #ff7979;
+}
+
+#registerBtn:hover{
+    background-color: #eb4d4b;
+}

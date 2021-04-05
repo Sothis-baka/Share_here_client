@@ -1,0 +1,115 @@
+body{
+  padding: 0;
+  margin: 0;
+
+  overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
+body::-webkit-scrollbar-track {
+  background: #ddd;
+}
+
+#homePage{
+  min-width: 680px;
+
+  background-image: url("../sources/pexels-simon-berger-1323550.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+*{
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+a{
+  color: #353b48;
+  text-decoration: none;
+}
+
+svg{
+  margin-top: 0.2em;
+  height: 1.6em;
+}
+
+svg:hover{
+  color: #74b9ff;
+  transform: translateY(1px);
+}
+
+input[type=text], input[type=password]{
+  border: 1px solid #c8d6e5;
+  outline: none;
+
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+textarea{
+  border: 1px solid #c8d6e5;
+  outline: none;
+  padding: 0.2em 0.2em 0.2em 0.4em;
+
+  height: 4em;
+  min-height: 1.8em;
+  resize: vertical;
+
+  font-size: 1em;
+
+  box-sizing: border-box;
+}
+
+input[type=text]:hover, input[type=password]:hover, textarea:hover{
+  border-color: #48dbfb;
+}
+
+input[type=text]:focus, input[type=password]:focus, textarea:focus{
+  border-color: transparent;
+  box-shadow: 0 0 4px #48dbfb;
+}
+
+.Invalid input[type=text]:focus, .Invalid input[type=password]:focus, .TextAreaInvalid textarea:focus{
+  box-shadow: 0 0 4px #eb4d4b;
+}
+
+.toolTip{
+  display: none;
+  position: absolute;
+
+  bottom: 0;
+
+  font-size: 0.7em;
+  color: #ff7979;
+}
+
+.Invalid .toolTip{
+  display: block;
+  left: 0.4em;
+  bottom: 0;
+}
+
+.TitleInvalid .toolTip{
+  display: block;
+  left: 0;
+  bottom: 0.2em;
+}
+
+.TextAreaInvalid .toolTip{
+  display: block;
+  left: 0;
+  bottom: -1.2em;
+}
+
+.center{
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}

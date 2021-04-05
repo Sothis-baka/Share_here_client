@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Source+Sans+Pro:wght@300;400;600&family=VT323&family=Oxygen:wght@300&family=Pacifico&display=swap');
+
+.mod{
+    margin: 1em;
+    padding: 1em;
+
+    border-radius: 4px;
+    background-color: white;
+
+    box-shadow: 0 2px 4px #b2bec3;
+}
+
+#navBar{
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    margin: 1em auto auto;
+
+    line-height: 2em;
+    font-size: 1.2em;
+}
+
+.affix{
+    position: fixed;
+}
+
+#navBar ul{
+    padding: 0.4em 0;
+}
+
+#navBar li{
+    font-weight: 600;
+
+    margin: 1em;
+}
+
+#navBar li:hover a{
+    color: #74b9ff;
+}
+
+#navBar ul a{
+    margin-left: 0.6em;
+}
+
+.bi-trash:hover{
+    color: #eb4d4b;
+}
+
+.bi-heart:hover{
+    color: red;
+}
+
+.bi-heart.liked{
+    color: red;
+}
+
+.filled-heart{
+    color: red;
+}
+
+.filled-heart:hover{
+    color: #eb4d4b;
+}
+
+#userIcon{
+    width: 2.4em;
+    height: 2.4em;
+
+    margin: 0;
+
+    border-radius: 50%;
+}
+
+#username{
+    margin-top: 0.4em;
+
+    font-family: 'Dancing Script', cursive;
+}
+
+#mainPage{
+    margin: auto;
+}
+
+#mainPageWrapper{
+    margin-right: 3em;
+}
+
+#postInput input[type=text]{
+    outline: none;
+    padding: 0.4em 0.4em 0.4em 0.6em;
+    margin-bottom: 1em;
+
+    font-size: 1.2em;
+    font-weight: 600;
+
+    box-sizing: border-box;
+}
+
+#postInput div, .replyInput div{
+    position: relative;
+}
+
+.inputBtn{
+    position: absolute;
+
+    bottom: 0;
+
+    height: 2em;
+    width: 5em;
+
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.username{
+    font-family: 'VT323', monospace;
+
+    font-size: 1.2em;
+}
+
+.posts{
+    display: flex;
+}
+
+.postCard{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+}
+
+.postCard.inactive:hover{
+    background-color: #636e72;
+    cursor: pointer;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.postCard p{
+    margin: 0;
+}
+
+.postCard .content{
+    margin: 2em 1em 2em 1em;
+    overflow-wrap: break-word;
+}
+
+.postCard small{
+    font-weight: 300;
+
+    margin-right: 2em;
+}
+
+.replyArea{
+    margin: 1em;
+}
+
+.replyInput{
+    margin: 1em;
+}
+
+.replies{
+    margin: 1em;
+}
+
+.replyCard .username{
+    font-size: 1em;
+}
+
+.replyContent{
+    font-family: 'Oxygen', sans-serif;
+    font-size: 0.8em;
+
+    overflow-wrap: break-word;
+}
+
+.replyAt{
+    font-size: 0.8em;
+    color: #636e72;
+}
+
+.deleteReplyBtn{
+    color: #eb4d4b;
+    cursor: pointer;
+}
+
+#searchInputWrapper{
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#searchInputGroup{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.4em;
+    background-color: rgba(45, 52, 54, 0.2);
+}
+
+#searchInputGroup input[type=text]{
+    margin: 0.2em;
+}
+
+#searchInputGroup a{
+    color: #b2bec3;
+}
+
+@media only screen and (max-width: 992px) {
+    .navName{
+        display: none;
+    }
+
+    #userIcon{
+        display: none;
+    }
+
+    #contact{
+        display: none;
+    }
+
+    #navBar li{
+        text-align: center;
+    }
+
+    #navBar ul a{
+        margin: 0;
+    }
+
+    #mainPageWrapper{
+        margin-right: 1em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #userIcon{
+        display: block;
+        margin-left: 1.8em;
+    }
+
+    #username{
+        display: none;
+    }
+
+    .affix{
+        margin-left: 1em;
+    }
+
+    #navBar .mod{
+        margin: 0;
+        padding: 0;
+    }
+
+    #navBar li{
+        margin-left: 1.4em;
+        margin-right: 0;
+    }
+
+    #mainPageWrapper{
+        margin-right: 0;
+    }
+
+    #mainPageWrapper .mod{
+        margin-left: 2em;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    body{
+        overflow-x: scroll;
+    }
+
+    #mainPageWrapper .mod{
+        margin-right: 0.4em;
+    }
+}

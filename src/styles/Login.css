@@ -1,0 +1,63 @@
+.login-wrapper{
+    display: flex;
+    flex-direction: column;
+
+    height: 100vh;
+    background-color: #e9ecef;
+}
+
+#appIcon{
+    width: 5em;
+    height: 5em;
+
+    border: 2px solid white;
+    border-radius: 16px;
+}
+
+#loginForm{
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+}
+
+#loginForm input[type=text], #loginForm input[type=password]{
+    box-sizing: unset;
+
+    margin: 0 0 1px;
+    padding: 1em;
+
+    width: 20em;
+
+    border-radius: 4px;
+    font-size: 1.4em;
+    font-weight: 400;
+}
+
+#loginForm a{
+    margin-top: 1em;
+}
+
+#loginForm a span{
+    text-decoration: underline;
+}
+
+#loginForm a:hover span{
+    color: #74b9ff;
+}
+
+@media only screen and (max-width: 768px) {
+    .login-wrapper{
+        font-size: 0.8em;
+    }
+
+    #loginForm input[type=text], #loginForm input[type=password]{
+        width: 16em;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #loginForm input[type=text], #loginForm input[type=password]{
+        width: 12em;
+    }
+}
