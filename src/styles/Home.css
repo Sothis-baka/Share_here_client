@@ -2,6 +2,7 @@
 
 #homePage{
     min-width: 680px;
+    min-height: 100vh;
 
     background-image: url("../sources/pexels-simon-berger-1323550.jpg");
     background-repeat: no-repeat;
