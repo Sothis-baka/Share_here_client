@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# Share here
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Author
 
-## Available Scripts
+Sothis-baka
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Description
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+An online forum. (the code in this rep is for **front end**)
 
-### `npm test`
+##### Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Apollo server (GraphQL)
 
-### `npm run build`
+##### Frontend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React.js
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Use local storage to store JWT. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+> React is XSS protected (except for some dangerous use)
+>
+> Unlike cookies, tokens won't be sent automatically with request (safer to CSRF attack)
+>
+> If there is sensitive data/action, should add more protection (mostly in back end, front end is never safe, if exposed to XSS attack, attackers can do anything on behalf of the user.) 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Use
 
-## Learn More
+Clone the repo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+git clone https://github.com/Sothis-baka/Share_here_client.git
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<span style="color:red;"><u>**You need to first set up backend Uri in .env file**</u></span>
 
-### Code Splitting
+```
+REACT_APP_Server_Uri = "https://*****.com"
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Run
 
-### Analyzing the Bundle Size
+```
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Client deployed at [Heroku](https://share-here-cli.herokuapp.com/)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### Source code
+
+[client](https://github.com/Sothis-baka/Share_here_client)
+
+[server](https://github.com/Sothis-baka/Share_here_server)
+
+
+
+### Version
+
+2.0
+
+
+
+### Last update
+
+9/15/2021
