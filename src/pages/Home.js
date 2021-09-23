@@ -1,5 +1,7 @@
 import React from "react";
 
+import '../styles/Home.css';
+
 class Home extends React.Component{
     constructor(props) {
         super(props);

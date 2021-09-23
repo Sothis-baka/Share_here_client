@@ -1,0 +1,140 @@
+#registerWrapper{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+#registerWrapper h1{
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.2em;
+
+    margin: 1em;
+}
+
+#registerFormWrapper{
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+}
+
+#registerFormWrapper .block{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    flex: 1;
+}
+
+#registerFormWrapper .logoBlock{
+    flex: 0.8;
+}
+
+#registerLogo{
+    height: 6em;
+    width: 6em;
+
+    border-radius: 12px;
+}
+
+#registerFormWrapper .inputGroup{
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    margin: 1.4em;
+}
+
+#registerFormWrapper .formInput{
+    width: 12em;
+}
+
+#registerFormWrapper .inputGroup small{
+    position: absolute;
+    bottom: -1.6em;
+
+    color: #EE5253;
+}
+
+#registerWrapper a{
+    text-decoration: underline;
+
+    margin: 1em;
+}
+
+#registerWrapper a:hover{
+    color: #74B9FF;
+}
+
+#registerBtn{
+    height: 2.4em;
+    width: 8em;
+
+    margin: 1em;
+    border-radius: 12px;
+
+    font-size: 1.8em;
+    font-weight: 600;
+
+    color: aliceblue;
+    background-color: #FF7675;
+
+    cursor: pointer;
+}
+
+#registerBtn:hover{
+    background-color: #ee5253;
+}
+
+#registerWrapper #alertWrapper{
+    position: relative;
+}
+
+#registerWrapper #alert{
+    position: absolute;
+    bottom: -1em;
+    left: 3.4em;
+
+    text-align: center;
+    color: #ee5253;
+}
+
+@media only screen and (max-width: 992px) {
+    #registerFormWrapper .logoBlock{
+        display: none;
+    }
+
+    #registerWrapper h1{
+        font-size: 2.4em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    #registerWrapper{
+        font-size: 0.8em;
+    }
+
+    #registerFormWrapper{
+        flex-direction: column;
+    }
+
+    #registerWrapper span{
+        margin-top: 1em;
+    }
+
+    #registerWrapper a{
+        margin: 0.6em;
+    }
+
+    #registerBtn{
+        margin: 0.4em;
+    }
+
+    #registerWrapper #alert{
+        left: 2.4em;
+    }
+}

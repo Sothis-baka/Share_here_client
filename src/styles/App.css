@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body{
+    background-color: #E9ECEF;
+}
+
+input{
+    border: none;
+    outline: none;
+}
+
+.formInput{
+    padding: 1em;
+    border: 1px solid #C8D6E5;
+    border-radius: 8px;
+
+    font-size: 1.4em;
+}
+
+.formInput:focus{
+    border-color: #81ECEC;
+    box-shadow: 0 0 2px #81ECEC;
+}
+
+.formInput.error:focus{
+    border-color: #EE5253;
+    box-shadow: 0 0 2px #EE5253;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
