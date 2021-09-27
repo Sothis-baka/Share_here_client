@@ -9,10 +9,16 @@ body{
     background-color: #E9ECEF;
 }
 
-input{
+input, button, textarea{
     border: none;
     outline: none;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
 
 .formInput{
     padding: 1em;
@@ -20,6 +26,10 @@ input{
     border-radius: 8px;
 
     font-size: 1.4em;
+}
+
+.formInput:hover{
+    border-color: #81ECEC;
 }
 
 .formInput:focus{
@@ -30,9 +40,4 @@ input{
 .formInput.error:focus{
     border-color: #EE5253;
     box-shadow: 0 0 2px #EE5253;
-}
-
-a{
-    text-decoration: none;
-    color: black;
 }

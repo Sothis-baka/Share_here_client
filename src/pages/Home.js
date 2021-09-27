@@ -1,6 +1,8 @@
 import React from "react";
 
 import '../styles/Home.css';
+import Nav from "./components/Nav";
+import Content from "./components/Content";
 
 class Home extends React.Component{
     constructor(props) {
@@ -19,9 +21,12 @@ class Home extends React.Component{
     }
 
     render(){
+        const username = this.state.user?.username;
+
         return (
-            <div>
-                Home
+            <div id='homeWrapper'>
+                <Nav username={ username }/>
+                <Content username={ username }/>
             </div>
         );
     }

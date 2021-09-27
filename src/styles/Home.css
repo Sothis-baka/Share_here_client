@@ -1,0 +1,246 @@
+#homeWrapper{
+    display: flex;
+    flex-direction: row;
+
+    height: 100vh;
+
+    background-image: url("../pages/sources/backgroundImg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-color: #C8D6E5;
+    overflow: hidden;
+}
+
+/* shared */
+.mod{
+    display: flex;
+
+    margin: 2em 6em;
+    padding: 1.2em;
+    border-radius: 4px;
+
+    /* Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, .2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .4));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.inputMod{
+    width: 75%;
+
+    margin-left: 1em;
+    padding: 10px 10px 10px 20px;
+
+    /* Glassmorphism */
+    border: 1px solid rgba(255, 255, 255, .2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .4));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.inputMod:hover{
+    border-color: rgba(129, 236, 236, 0.8);
+}
+
+.inputMod:focus{
+    border-color: rgba(129, 236, 236, 0.8);
+    box-shadow: 0 0 5px rgba(129, 236, 236, 0.8);
+}
+
+.homeBtn{
+    border: 1px solid rgba(129, 236, 236, 0.6);
+    border-radius: 6px;
+
+    color: aliceblue;
+    background-color: rgba(129, 236, 236, 0.7);
+}
+
+.homeBtn:hover{
+    background-color: rgba(0, 206, 201, 0.6);
+
+    cursor: pointer;
+}
+
+.homeBtn.disable, .homeBtn.disable:hover{
+    background-color: rgba(129, 236, 236, 0.4);
+}
+
+/* layout */
+#navBar{
+    flex: 3;
+}
+
+#mainContent{
+    flex: 7;
+
+    height: 100%;
+    overflow-y: scroll;
+}
+
+/* nav */
+#navUser{
+    align-items: center;
+    justify-content: center;
+}
+
+#userIcon{
+    height: 2.4em;
+    width: 2.4em;
+    margin-left: 1.2em;
+
+    border-radius: 50%;
+}
+
+#navUser span{
+    flex: 1;
+
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Dancing Script', cursive;
+}
+
+#navUser button{
+    width: 6em;
+    height: 2em;
+
+    font-size: 1.2em;
+}
+
+#navBtns{
+    flex-direction: column;
+    margin-top: 3em;
+    margin-bottom: 3em;
+}
+
+#navBtns button{
+    display: flex;
+
+    margin: 0.4em;
+    padding: 0.6em;
+    border-radius: 20px;
+
+    color: #2C3E50;
+    background-color: transparent;
+}
+
+#navBtns button:hover{
+    color: #74B9FF;
+    background-color: rgba(129, 236, 236, 0.2);
+
+    cursor: pointer;
+}
+
+#navBtns svg{
+    height: 1.8em;
+    width: 1.8em;
+
+    margin-top: 0.1em;
+}
+
+#navBtns span{
+    margin-left: 1.4em;
+
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+#navContact{
+    align-items: center;
+    justify-content: center;
+}
+
+#navContact a{
+    flex: 1;
+    text-align: center;
+}
+
+#navContact svg{
+    height: 2em;
+    width: 2em;
+}
+
+#navContact a:hover{
+    opacity: 0.8;
+}
+
+/* main content */
+#postInput{
+    flex-direction: column;
+}
+
+#postInput div{
+    position: relative;
+}
+
+#postInput input[type=text]{
+    font-size: 1.1em;
+}
+
+#postInput textarea{
+    height: 5em;
+    min-height: 5em;
+    margin-top: 1.4em;
+
+    font-size: 1em;
+
+    resize: vertical;
+}
+
+#postInput small{
+    position: absolute;
+    bottom: -1.2em;
+    left: 2em;
+
+    font-size: 0.8em;
+    color: #ee5253;
+}
+
+#postBtn{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+
+    height: 2.4em;
+    width: 5.2em;
+
+    font-size: 1.01em;
+}
+
+#postArea{
+
+}
+
+.postCard{
+    flex-direction: column;
+}
+
+.postCard:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.postCard.expand:hover{
+    opacity: 1;
+    cursor: default;
+}
+
+.cardTitle{
+    margin-bottom: 0.4em;
+
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.cardUsername{
+    font-family: 'VT323', monospace;
+}
+
+.cardDate{
+    margin-left: 3em;
+
+    font-size: 0.8em;
+    font-weight: 200;
+}
