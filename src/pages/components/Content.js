@@ -3,11 +3,11 @@ import React from "react";
 import ContentPostInput from "./ContentPostInput";
 import ContentPostArea from "./ContentPostArea";
 
-const Content = ({ username }) => {
+const Content = () => {
     return (
         <div id='mainContent'>
             <ContentPostInput/>
-            <ContentPostArea username={ username }/>
+            <ContentPostArea/>
         </div>
     );
 }

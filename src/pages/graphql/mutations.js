@@ -75,6 +75,7 @@ const TOGGLE_LIKE_POST = gql`
     mutation ToggleLikeMutation($toggleLikePostId: String!) {
         toggleLike(postId: $toggleLikePostId) {
             status
+            like
         }
     }
 `;

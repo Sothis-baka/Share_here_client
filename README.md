@@ -96,6 +96,10 @@ compress icon before use
 
 If multiple state need to update, combine them together. Use a copy of object so that diff function can quickly distinguish.
 
+use PureComponent, React.memo when possible
+
+implement shouldComponentUpdate to avoid unnecessary render
+
 Responsive design
 
 > ​	Auto focus on input
@@ -115,3 +119,51 @@ Responsive design
 >   For register page, conceal the icon in smaller screen and adjust layout from horizontal to vertical
 >
 > 
+
+How I implement the visual list
+
+* Query data
+
+  It takes time to communicate with server, and the server is deployed on Heroku which means it needs time to wake up, which worsen the situation.
+
+  With a wrapper component, I delay the render of post area so that other components may load first.
+
+* Scroll event listener
+
+  The scrollable part is main content, the parent div of post area (which also contains an input area)
+
+  I came up with two ways to listen the event.
+
+  1. Add scroll listener to main content component, and use ref to call corresponding child for data operation
+  2. Inside the child component, add a event listener to main content from DOM tree
+
+  And I selected to use the second approach.
+
+  
+
+  Why add passive to event listener?
+
+  It promises that scroll event won't be blocked, so that performance can be guaranteed.
+
+* Throttle
+
+  Use lodash.throttle to decorate the event listener. 
+
+  It won't be triggered more than once in a frame (60 frames per second)
+
+* Detect scroll direction
+
+  Record the scrollTop value of last event and compare with current event.
+
+* Layout
+
+  The screen can roughly contain 6 items. So I only render 8 items of the list.
+
+  I record the position of the first and last items. 
+
+  > When scrolling up, if the last item is out of view, index of rendered items will change  from (n, n+8) to (n-2, n+6).
+  >
+  > When scrolling down, if the first item is out of view, index of rendered items will change  from (n, n+8) to (n+2, n+10).
+
+  
+

@@ -19,7 +19,6 @@ const ContentPostInput = () => {
             onCompleted: ({ createPost }) => {
                 if(createPost?.status === '201'){
                     // Created
-                    console.log("created")
                 }else if(createPost?.status === '401'){
                     // Rejected, not authenticated
                     setPostInput({ ...postInput, authenticated: false });

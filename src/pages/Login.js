@@ -23,6 +23,7 @@ const Login = () => {
                     // Authenticated
                     const user = login.user;
                     localStorage.setItem('user', JSON.stringify(user));
+                    localStorage.setItem('username', user.username);
                     localStorage.setItem('token', user.token);
                     localStorage.setItem('loginTime', String(new Date().getTime()));
                     setLoginInfo({ ...loginInfo,  verified: true });

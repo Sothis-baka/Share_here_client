@@ -26,7 +26,7 @@ class Home extends React.Component{
         return (
             <div id='homeWrapper'>
                 <Nav username={ username }/>
-                <Content username={ username }/>
+                <Content/>
             </div>
         );
     }

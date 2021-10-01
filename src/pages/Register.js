@@ -29,6 +29,7 @@ const Register = () => {
                     // Created
                     const user = register.user;
                     localStorage.setItem('user', JSON.stringify(user));
+                    localStorage.setItem('username', user.username);
                     localStorage.setItem('token', user.token);
                     localStorage.setItem('loginTime', String(new Date().getTime()));
                     setRegisterInfo({ ...registerInfo, verified: true });

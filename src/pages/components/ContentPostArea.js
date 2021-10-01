@@ -77,7 +77,7 @@ class PostArea extends React.Component{
     }
 }
 
-const ContentPostAreaInner = ({ username }) => {
+const ContentPostAreaInner = () => {
     const { loading, error, data } = useQuery(FETCH_POSTS_QUERY);
 
     if(loading){
@@ -94,7 +94,7 @@ const ContentPostAreaInner = ({ username }) => {
     }
 
     return(
-        <PostArea posts={ posts } username={ username }/>
+        <PostArea posts={ posts }/>
     )
 }
 
@@ -113,16 +113,11 @@ class ContentPostArea extends React.Component{
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if(this.state.shouldRender !== nextState.shouldRender)
-            return true;
-        if(this.props.username !== nextProps.username)
-            return true;
-
-        return false;
+        return this.state.shouldRender !== nextState.shouldRender;
     }
 
     render() {
-        return this.state.shouldRender ? <ContentPostAreaInner username={ this.props.username }/> : "loading";
+        return this.state.shouldRender ? <ContentPostAreaInner/> : "loading";
     }
 }
 

@@ -11,12 +11,7 @@ class ContentPostCard extends React.Component{
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        if (this.props.post.id !== nextProps.post.id || this.props.id !== nextProps.id)
-            return true;
-        if(this.state.expand !== nextState.expand)
-            return true;
-
-        return false;
+        return !(this.props.post.id === nextProps.post.id && this.props.id === nextProps.id && this.state.expand === nextState.expand);
     }
 
     handleExpand = () => {
@@ -24,15 +19,57 @@ class ContentPostCard extends React.Component{
         this.setState({ expand: !expand });
     }
 
+    handleScroll = (e) => {
+        const mainContent = document.getElementById('mainContent');
+
+        let remain = e.target.getBoundingClientRect().y - document.documentElement.offsetHeight / 2;
+        let down = true;
+        if(remain < 0){
+            remain = -remain;
+            down = false;
+        }
+
+        const move = () => {
+            if(remain > 10){
+                mainContent.scrollBy({ top: down?10:-10, behavior: "auto" });
+                remain -= 10;
+            }else {
+                mainContent.scrollBy({ top: down?remain:-remain, behavior: "auto" });
+                remain = 0;
+            }
+
+            if(remain){
+                console.log("yes")
+                window.requestAnimationFrame(()=>{
+                    move();
+                });
+            }
+        }
+
+        window.requestAnimationFrame(() => {
+            move();
+        });
+
+        e.stopPropagation();
+    }
+
     render() {
         const post = this.props.post;
         const { expand } =  this.state;
+        const id = this.props.id;
 
         return (
-            <div className={'mod postCard' + (expand?" expand":"")} onClick={ expand ? null : this.handleExpand } id={ this.props.id }>
+            <div className={'mod postCard' + (expand?" expand":"")} onClick={ expand ? null : this.handleExpand } id={ id }>
                 <p className='cardTitle'>{ post.title }</p>
-                <p><span className='cardUsername'>{ post.username }</span><span className='cardDate'>{ getDisplayTime(post.lastActive) }</span></p>
-                { expand && <ContentPostCardExpansion postId={ post.id } handleExpand={ this.handleExpand }/> }
+                <p><span className='cardUsername'>{ post.username }</span><span className='cardDate'>{ getDisplayTime(expand ? post.postAt : post.lastActive) }</span></p>
+                <div className='timeLine' onClick={ this.handleScroll }/>
+                <div className={ 'lineOfTimeLine' + (id ? " "+id : "") }/>
+                { expand &&
+                    <>
+                        <p className='cardContent'>{ post.content }</p>
+                        <ContentPostCardExpansion postInfo={ { id: post.id, username: post.username } } handleExpand={ this.handleExpand }/>
+                    </>
+                }
             </div>
         );
     }

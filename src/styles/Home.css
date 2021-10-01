@@ -35,8 +35,8 @@
     padding: 10px 10px 10px 20px;
 
     /* Glassmorphism */
-    border: 1px solid rgba(255, 255, 255, .2);
-    background: linear-gradient(135deg, rgba(255, 255, 255, .2), rgba(255, 255, 255, .4));
+    border: 1px solid rgba(255, 255, 255, .4);
+    background: linear-gradient(135deg, rgba(255, 255, 255, .1), rgba(255, 255, 255, .2));
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
 }
@@ -171,7 +171,7 @@
     flex-direction: column;
 }
 
-#postInput div{
+#postInput div, .replyInput{
     position: relative;
 }
 
@@ -179,7 +179,7 @@
     font-size: 1.1em;
 }
 
-#postInput textarea{
+#postInput textarea, .replyInput textarea{
     height: 5em;
     min-height: 5em;
     margin-top: 1.4em;
@@ -189,7 +189,7 @@
     resize: vertical;
 }
 
-#postInput small{
+#postInput small, .replyInput small{
     position: absolute;
     bottom: -1.2em;
     left: 2em;
@@ -198,7 +198,7 @@
     color: #ee5253;
 }
 
-#postBtn{
+#postBtn, .replyBtn{
     position: absolute;
     right: 0;
     bottom: 10px;
@@ -227,6 +227,10 @@
     cursor: default;
 }
 
+.postCard p{
+    margin-left: 20px;
+}
+
 .cardTitle{
     margin-bottom: 0.4em;
 
@@ -238,9 +242,136 @@
     font-family: 'VT323', monospace;
 }
 
+.cardContent{
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    font-size: 1.02em;
+}
+
 .cardDate{
     margin-left: 3em;
 
     font-size: 0.8em;
     font-weight: 200;
+}
+
+/* timeline */
+.timeLine{
+    position: absolute;
+    top: 1em;
+    left: -4em;
+
+    height: 1em;
+    width: 1em;
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+
+    z-index: 3;
+}
+
+.lineOfTimeLine{
+    position: absolute;
+    top: calc(2em + 2px);
+    left: -3.6em;
+
+    width: 0.2em;
+    height: calc(100% + 1em);
+
+    border-left: 1px solid rgba(255, 255, 255, 0.21);
+    border-right: 1px solid rgba(255, 255, 255, 0.21);
+    background-color: rgba(255, 255, 255, 0.42);
+
+    z-index: 2;
+}
+
+.lineOfTimeLine.LastOne{
+    display: none;
+}
+
+/* deal with opacity change */
+.postCard:hover .timeLine{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.postCard.expand:hover .timeLine{
+    background-color: rgba(255, 255, 255, 0.42);
+}
+
+.postCard:hover .lineOfTimeLine{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.postCard.expand:hover .lineOfTimeLine{
+    background-color: rgba(255, 255, 255, 0.42);
+}
+
+#postCardBtns{
+    display: flex;
+}
+
+#postCardBtns div{
+    flex: 1;
+
+    text-align: center;
+}
+
+#postCardBtns svg{
+    height: 1.8em;
+    width: 1.8em;
+}
+
+#postCardBtns svg:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.replyArea{
+    align-self: center;
+    width: 85%;
+
+    font-size: 0.9em;
+}
+
+.replyInput{
+    display: flex;
+}
+
+.replyInput textarea{
+    height: 3.2em;
+    min-height: 3.2em;
+
+    margin-left: 0;
+}
+
+.replyBtn{
+    bottom: 0;
+}
+
+.replyCard{
+    list-style: none;
+}
+
+.replyCard hr{
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    border: none;
+    border-top: 1px solid black;
+}
+
+.replyCard div{
+    margin-top: 0.4em;
+}
+
+.replyBottom{
+    font-size: 0.9em;
+}
+
+.replyBottom span{
+    margin-left: 2em;
+
+    color: #ee5253;
 }
