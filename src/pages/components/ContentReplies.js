@@ -31,7 +31,7 @@ const ContentRepliesInner = ({ postId }) => {
     );
 };
 
-class ContentReplies extends React.Component{
+class ContentReplies extends React.PureComponent{
     constructor(props) {
         super(props);
 

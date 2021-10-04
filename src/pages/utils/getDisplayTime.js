@@ -15,7 +15,7 @@ const getDisplayTime = (time) => {
 
     if(diff <= 60){
         // less than 1 min
-        return `${ diff } s`;
+        return 'just now';
     }else if(diff <= 3600){
         // less than 1 hour
         return `${ Math.floor(diff/60) } min`;

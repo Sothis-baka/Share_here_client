@@ -4,6 +4,8 @@ import '../styles/Home.css';
 import Nav from "./components/Nav";
 import Content from "./components/Content";
 
+import { FilterProvider } from "./utils/filterContext";
+
 class Home extends React.Component{
     constructor(props) {
         super(props);
@@ -17,17 +19,33 @@ class Home extends React.Component{
             user = JSON.parse(localStorage.getItem('user'));
         }
 
-        this.state = { user };
+        this.handleFilterRule = this.handleFilterRule.bind(this);
+        this.state = { user, rule: 'no', keyword: '' };
+    }
+
+    handleFilterRule = (rule) => {
+        if(rule.rule){
+            this.setState({ rule: rule.rule });
+        }else{
+            this.setState({ keyword: rule.keyword });
+        }
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return !(this.state.rule === nextState.rule && this.state.keyword === nextState.keyword);
     }
 
     render(){
         const username = this.state.user?.username;
 
         return (
-            <div id='homeWrapper'>
-                <Nav username={ username }/>
-                <Content/>
-            </div>
+            <FilterProvider value={ { rule: this.state.rule, keyword: this.state.keyword } }>
+                <div id='homeWrapper'>
+                    <Nav username={ username } handleFilterRule={ this.handleFilterRule }/>
+                    <Content/>
+                </div>
+
+            </FilterProvider>
         );
     }
 }

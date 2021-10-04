@@ -39,7 +39,6 @@ class ContentPostCard extends React.Component{
             }
 
             if(remain){
-                console.log("yes")
                 window.requestAnimationFrame(()=>{
                     move();
                 });

@@ -1,19 +1,22 @@
-import React from "react";
+import React, {useContext, useEffect, useRef} from "react";
 import { useQuery } from "@apollo/client";
 import throttle from 'lodash.throttle';
 
 import { FETCH_POSTS_QUERY } from "../graphql/queries";
 import ContentPostCard from "./ContentPostCard";
+import FilterContext from "../utils/filterContext";
+import {Redirect} from "react-router-dom";
 
 class PostArea extends React.Component{
     constructor(props) {
         super(props);
 
         // throttle
-        this.handleScroll = throttle(this.handleScroll, 20);
+        this.handleScroll = throttle(this.handleScroll,16);
 
         /* help to get scroll direction */
         this.lastScroll = 0;
+        this.lock = false;
         this.state = { firstIndex: 0 };
     }
 
@@ -26,6 +29,9 @@ class PostArea extends React.Component{
     }
 
     handleScroll = (e) => {
+        if(this.props.posts.length < 14){
+            return;
+        }
         // load this every time in case screen size changes
         const documentY = document.documentElement.offsetHeight;
 
@@ -34,20 +40,20 @@ class PostArea extends React.Component{
             // scroll down
             this.lastScroll = currentScroll;
 
-            const lastOneY =  document.getElementById('LastOne').getBoundingClientRect().y;
-            if(lastOneY < documentY){
-                if(this.props.posts.length - 10 > this.state.firstIndex) {
+            const lastOneY =  document.getElementById('LastOne')?.getBoundingClientRect().y;
+            if(lastOneY && lastOneY < documentY){
+                if(this.props.posts.length - 12> this.state.firstIndex) {
                     this.setState({ firstIndex: this.state.firstIndex + 2 });
                 }else {
-                    this.setState({ firstIndex: this.props.posts.length - 8 });
+                    this.setState({ firstIndex: this.props.posts.length - 10 });
                 }
             }
         }else{
             // scroll up
             this.lastScroll = currentScroll;
 
-            const firstOneY =  document.getElementById('FirstOne').getBoundingClientRect().y;
-            if(firstOneY > 0){
+            const firstOneY =  document.getElementById('FirstOne')?.getBoundingClientRect().y;
+            if(firstOneY && firstOneY > 0){
                 if(this.state.firstIndex > 2) {
                     this.setState({ firstIndex: this.state.firstIndex - 2 });
                 }else {
@@ -57,10 +63,14 @@ class PostArea extends React.Component{
         }
     }
 
+    handleReset = () => {
+        this.setState({ firstIndex: 0 });
+    }
+
     render() {
         const posts = this.props.posts;
         const firstIndex = this.state.firstIndex;
-        const lastIndex = posts.length < 8 ? posts.length : firstIndex + 8;
+        const lastIndex = posts.length < 10 ? posts.length : firstIndex + 10;
 
         return (
             <ul id='postArea'>
@@ -80,6 +90,16 @@ class PostArea extends React.Component{
 const ContentPostAreaInner = () => {
     const { loading, error, data } = useQuery(FETCH_POSTS_QUERY);
 
+    const postAreaRef = useRef(null);
+    const context = useContext(FilterContext);
+
+    useEffect(() => {
+        if(postAreaRef.current) {
+            postAreaRef.current.handleReset();
+            document.getElementById('mainContent').scroll(0, 0);
+        }
+    })
+
     if(loading){
         return "loading";
     }
@@ -88,13 +108,30 @@ const ContentPostAreaInner = () => {
         return `ERROR! ${ error.message }`;
     }
 
-    const posts = data?.getPosts;
+    let posts = data?.getPosts;
     if(!posts){
         return null;
     }
 
+    const user = JSON.parse(localStorage.getItem('user'));
+    if(context.rule === 'post'){
+        if(!user){
+            return <Redirect to='./login'/>;
+        }
+        posts = posts.filter(p => p.username === user.username);
+    }else if(context.rule === 'like'){
+        if(!user){
+            return <Redirect to='./login'/>;
+        }
+        posts = posts.filter(p => user?.likes?.includes(p.id));
+    }
+
+    if(context.keyword){
+        posts = posts.filter(p => p.title.includes(context.keyword)||p.content.includes(context.keyword)||p.username.includes(context.keyword));
+    }
+
     return(
-        <PostArea posts={ posts }/>
+        <PostArea ref={ postAreaRef } posts={ posts }/>
     )
 }
 

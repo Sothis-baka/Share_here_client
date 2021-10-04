@@ -68,9 +68,13 @@ const ContentReplyInput = ({ postId }) => {
 
     return (
         <form className='replyInput' onSubmit={ handleSubmit }>
-            <textarea className='inputMod' name='content' placeholder='Send a friendly reply' onChange={ handleChange }/>
-            <input className={'homeBtn replyBtn' + (loading ? " disabled" : "")} type='submit' value='Reply'/>
-            <small>{ replyInput.contentValid ? null : "Wow so much to say, split them into comment!" }</small>
+            <div className='left'>
+                <textarea className='inputMod' name='content' placeholder='Send a friendly reply' onChange={ handleChange } autoFocus={ true }/>
+                <small>{ replyInput.contentValid ? null : "Wow so much to say, split them into comment!" }</small>
+            </div>
+            <div className='right'>
+                <input className={'homeBtn replyBtn' + (loading ? " disabled" : "")} type='submit' value='Reply'/>
+            </div>
             { loading ? "loading": null }
             { error ? "Network error, try again later": null }
         </form>

@@ -86,14 +86,18 @@ const ContentPostInput = () => {
 
     return (
         <form id='postInput' className='mod' onSubmit={ handleSubmit }>
-            <div>
-                <input className='inputMod' type='text' name='title' placeholder='Give a title to your post' onChange={ handleChange }/>
-                <small>{ postInput.titleValid ? null : "How can you come up with such a long title!" }</small>
+            <div className='left'>
+                <div>
+                    <input id='postTitleInput' className='inputMod' type='text' name='title' placeholder='Give a title to your post' onChange={ handleChange }/>
+                    <small>{ postInput.titleValid ? null : "How can you come up with such a long title!" }</small>
+                </div>
+                <div>
+                    <textarea className='inputMod' name='content' placeholder='Share your thoughts' onChange={ handleChange }/>
+                    <small>{ postInput.contentValid ? null : "Wow so much to say, split them into comment!" }</small>
+                </div>
             </div>
-            <div>
-                <textarea className='inputMod' name='content' placeholder='Share your thoughts' onChange={ handleChange }/>
+            <div className='right'>
                 <input id='postBtn' className={'homeBtn' + (loading ? " disabled" : "")} type='submit' value='Post'/>
-                <small>{ postInput.contentValid ? null : "Wow so much to say, split them into comment!" }</small>
             </div>
             { loading ? "loading": null }
             { error ? "Network error, try again later": null }

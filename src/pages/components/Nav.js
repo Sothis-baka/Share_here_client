@@ -5,11 +5,11 @@ import NavBtns from "./NavBtns";
 import NavContact from "./NavContact";
 
 // Won't rerender unless username changes
-const Nav = ({ username }) => {
+const Nav = ({ username, handleFilterRule }) => {
     return (
         <div id='navBar'>
             <HomeIcon username={ username }/>
-            <NavBtns/>
+            <NavBtns handleFilterRule={ handleFilterRule }/>
             <NavContact/>
         </div>
     );
