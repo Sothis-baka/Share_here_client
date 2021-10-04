@@ -5,6 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import App from './App';
 
+console.log(process.env.REACT_APP_Server_Uri)
 const httpLink = createHttpLink({ uri: process.env.REACT_APP_Server_Uri });
 
 const authLink = setContext((_, { headers }) => {
