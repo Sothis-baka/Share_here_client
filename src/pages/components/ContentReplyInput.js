@@ -73,7 +73,7 @@ const ContentReplyInput = ({ postId }) => {
         return <Redirect to='./login'/>;
     }
 
-    if(!replyInput.needRefresh){
+    if(replyInput.needRefresh){
         window.location.reload();
     }
 
