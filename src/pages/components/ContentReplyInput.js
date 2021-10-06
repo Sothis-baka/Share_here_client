@@ -3,6 +3,7 @@ import { useMutation } from "@apollo/client";
 import { REPLY } from "../graphql/mutations";
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+import {Redirect} from "react-router-dom";
 
 const ContentReplyInput = ({ postId }) => {
     const [replyInput, setReplyInput] = useState({
@@ -66,6 +67,14 @@ const ContentReplyInput = ({ postId }) => {
                 replyPostId: postId, replyContent: replyInput.content
             }
         });
+    }
+
+    if(!replyInput.authenticated){
+        return <Redirect to='./login'/>;
+    }
+
+    if(!replyInput.needRefresh){
+        window.location.reload();
     }
 
     return (
