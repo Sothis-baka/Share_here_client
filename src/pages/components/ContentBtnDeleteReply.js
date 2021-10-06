@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import {useMutation} from "@apollo/client";
 import {DELETE_REPLY} from "../graphql/mutations";
 import {Redirect} from "react-router-dom";
+import Loading from "./Loading";
+import ErrorTip from "./ErrorTip";
 
 const ContentBtnDeleteReply = ({ replyId }) => {
     const [rejected, setRejected] = useState(false);
@@ -37,7 +39,8 @@ const ContentBtnDeleteReply = ({ replyId }) => {
     return (
         <>
             <span onClick={ handleClick }>delete</span>
-            { error && "error" }
+            { loading && <Loading/> }
+            { error && <ErrorTip text="Network Error!"/> }
         </>
     );
 }

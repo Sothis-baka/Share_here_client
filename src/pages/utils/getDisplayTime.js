@@ -9,10 +9,6 @@ const getDisplayTime = (time) => {
     // millisecond to second
     const diff = Math.floor((new Date() - date) / 1000);
 
-    if(diff < 0){
-        return '0 s';
-    }
-
     if(diff <= 60){
         // less than 1 min
         return 'just now';

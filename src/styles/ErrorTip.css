@@ -1,0 +1,43 @@
+#errorOuterWrapper{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+#errorWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 10em;
+    max-width: 10em;
+    height: 5em;
+}
+
+#errorWrapper span{
+    color: #ee5253;
+}
+
+#errorWrapper button{
+    height: 2em;
+    width: 4em;
+
+    margin-top: 1em;
+}
+
+#errorWrapper svg{
+    height: 1em;
+    width: 1em;
+
+    color: aliceblue;
+}

@@ -4,6 +4,8 @@ import { useQuery } from "@apollo/client";
 import { FETCH_REPLIES_QUERY } from "../graphql/queries";
 import ContentReplyInput from "./ContentReplyInput";
 import ContentSingleReply from "./ContentSingleReply";
+import Loading from "./Loading";
+import ErrorTip from "./ErrorTip";
 
 const ContentRepliesInner = ({ postId }) => {
     const { loading, error, data } = useQuery(FETCH_REPLIES_QUERY, {
@@ -11,11 +13,11 @@ const ContentRepliesInner = ({ postId }) => {
     });
 
     if(loading){
-        return "loading";
+        return <Loading/>;
     }
 
     if(error){
-        return `ERROR! ${ error.message }`;
+        return <ErrorTip text="Network Error!"/>;
     }
 
     const replies = data?.getReplies;

@@ -6,6 +6,8 @@ import { FETCH_POSTS_QUERY } from "../graphql/queries";
 import ContentPostCard from "./ContentPostCard";
 import FilterContext from "../utils/filterContext";
 import {Redirect} from "react-router-dom";
+import Loading from "./Loading";
+import ErrorTip from "./ErrorTip";
 
 class PostArea extends React.Component{
     constructor(props) {
@@ -101,11 +103,11 @@ const ContentPostAreaInner = () => {
     })
 
     if(loading){
-        return "loading";
+        return <Loading/>;
     }
 
     if(error){
-        return `ERROR! ${ error.message }`;
+        return  <ErrorTip text="Network Error!"/>;
     }
 
     let posts = data?.getPosts;
@@ -154,7 +156,7 @@ class ContentPostArea extends React.Component{
     }
 
     render() {
-        return this.state.shouldRender ? <ContentPostAreaInner/> : "loading";
+        return this.state.shouldRender ? <ContentPostAreaInner/> : <Loading/>;
     }
 }
 

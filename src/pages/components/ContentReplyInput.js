@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REPLY } from "../graphql/mutations";
+import Loading from "./Loading";
+import ErrorTip from "./ErrorTip";
 
 const ContentReplyInput = ({ postId }) => {
     const [replyInput, setReplyInput] = useState({
@@ -75,8 +77,8 @@ const ContentReplyInput = ({ postId }) => {
             <div className='right'>
                 <input className={'homeBtn replyBtn' + (loading ? " disabled" : "")} type='submit' value='Reply'/>
             </div>
-            { loading ? "loading": null }
-            { error ? "Network error, try again later": null }
+            { loading ? <Loading/> : null }
+            { error ? <ErrorTip text="Network Error!"/>: null }
         </form>
     );
 }

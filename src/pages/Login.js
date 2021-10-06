@@ -6,6 +6,7 @@ import md5 from "md5";
 import { LOGIN_MUTATION } from "./graphql/mutations";
 import '../styles/Login.css';
 import appIcon from "./sources/appIcon.png";
+import Loading from "./components/Loading";
 
 const Login = () => {
     const [loginInfo, setLoginInfo] = useState({
@@ -74,7 +75,7 @@ const Login = () => {
                 New user? <Link to='./register'>Sign up here</Link>
                 <p id='alert'>
                     {
-                        error ? "Network error, try again later" : (loginInfo.loginFailed ? "Can't login with given information" : null)
+                        error ? "Network Error! Please check your connection" : (loginInfo.loginFailed ? "Can't login with given information" : null)
                     }
                 </p>
             </small>
@@ -83,7 +84,7 @@ const Login = () => {
 
             {
                 // Display animation when loading, put at last won't cause other component rerender
-                loading ? "loading": null
+                loading && <Loading/>
             }
         </form>
     );

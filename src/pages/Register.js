@@ -7,6 +7,7 @@ import {REGISTER_MUTATION} from "./graphql/mutations";
 import { usernameValid, passwordValid } from "./utils/inputValidate";
 import '../styles/Register.css';
 import appIcon from "./sources/appIcon.png";
+import Loading from "./components/Loading";
 
 
 const Register = () => {
@@ -153,7 +154,7 @@ const Register = () => {
                         <input id='registerBtn' type='submit' value='Sign up'/>
                         <p id='alert'>
                             {
-                                error ? "Network error, try again later" : (registerInfo.registerFailed ? "Username is already taken" : null)
+                                error ? "Network Error! Please check your connection" : (registerInfo.registerFailed ? "Username is already taken" : null)
                             }
                         </p>
                     </div>
@@ -162,7 +163,7 @@ const Register = () => {
 
             {
                 // Display animation when loading, put at last won't cause other component rerender
-                loading ? "loading": null
+                loading ? <Loading/> : null
             }
         </div>
     );
