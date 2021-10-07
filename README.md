@@ -32,17 +32,17 @@ Server deployed at [Heroku](https://share-here-server.herokuapp.com/)
 
 desktop
 
-![image-20211007025156184](D:\Workplace\Markdown\desktop_1.png)
+![desktop_1](https://raw.githubusercontent.com/Sothis-baka/Share_here_client/master/source/desktop_1.png)
 
-![image-20211007025310183](D:\Workplace\Markdown\desktop_2.png)
+![desktop_2](https://raw.githubusercontent.com/Sothis-baka/Share_here_client/master/source/desktop_2.png)
 
-![image-20211007025332651](D:\Workplace\Markdown\desktop_3.png)
+![desktop_3](https://raw.githubusercontent.com/Sothis-baka/Share_here_client/master/source/desktop_3.png)
 
-![Screenshot_20211007_025459_com.android.chrome](C:\Users\17690\Desktop\drive-download-20211007T065731Z-001\Screenshot_20211007_025459_com.android.chrome.jpg)
+![mobile_1](https://raw.githubusercontent.com/Sothis-baka/Share_here_client/master/source/mobile_1.jpg)
 
-![Screenshot_20211007_025504_com.android.chrome](C:\Users\17690\Desktop\drive-download-20211007T065731Z-001\Screenshot_20211007_025504_com.android.chrome.jpg)
+![mobile_2](https://raw.githubusercontent.com/Sothis-baka/Share_here_client/master/source/mobile_2.jpg)
 
-![Screenshot_20211007_025518_com.android.chrome](C:\Users\17690\Desktop\drive-download-20211007T065731Z-001\Screenshot_20211007_025518_com.android.chrome.jpg)
+![mobile_3](https://raw.githubusercontent.com/Sothis-baka/Share_here_client/master/source/mobile_3.jpg)
 
 ### Usage
 
