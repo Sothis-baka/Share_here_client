@@ -32,11 +32,11 @@ Server deployed at [Heroku](https://share-here-server.herokuapp.com/)
 
 desktop
 
-![image-20211007025156184](C:\Users\17690\AppData\Roaming\Typora\typora-user-images\image-20211007025156184.png)
+![image-20211007025156184](D:\Workplace\Markdown\desktop_1.png)
 
-![image-20211007025310183](C:\Users\17690\AppData\Roaming\Typora\typora-user-images\image-20211007025310183.png)
+![image-20211007025310183](D:\Workplace\Markdown\desktop_2.png)
 
-![image-20211007025332651](C:\Users\17690\AppData\Roaming\Typora\typora-user-images\image-20211007025332651.png)
+![image-20211007025332651](D:\Workplace\Markdown\desktop_3.png)
 
 ![Screenshot_20211007_025459_com.android.chrome](C:\Users\17690\Desktop\drive-download-20211007T065731Z-001\Screenshot_20211007_025459_com.android.chrome.jpg)
 
