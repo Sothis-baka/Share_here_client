@@ -1,6 +1,6 @@
 import React from "react";
-import NavBtnFilter from "./NavBtnFilter";
 
+import NavBtnFilter from "./NavBtnFilter";
 import NavUserMobile from "./NavUserMobile";
 import NavBtnPen from "./NavBtnPen";
 

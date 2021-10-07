@@ -1,6 +1,7 @@
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+
 import '../../styles/ErrorTip.css';
-import {useState} from "react";
-import {Redirect} from "react-router-dom";
 
 const ErrorTip = ({ text }) => {
     const [read, setRead] = useState(false);
@@ -27,4 +28,4 @@ const ErrorTip = ({ text }) => {
     );
 }
 
-export default ErrorTip;
+export default React.memo(ErrorTip);

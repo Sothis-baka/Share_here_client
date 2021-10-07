@@ -1,13 +1,14 @@
 import React, {useContext, useEffect, useRef} from "react";
+import { Redirect } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import throttle from 'lodash.throttle';
 
-import { FETCH_POSTS_QUERY } from "../graphql/queries";
 import ContentPostCard from "./ContentPostCard";
-import FilterContext from "../utils/filterContext";
-import {Redirect} from "react-router-dom";
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+
+import { FETCH_POSTS_QUERY } from "../graphql/queries";
+import FilterContext from "../utils/filterContext";
 
 class PostArea extends React.Component{
     constructor(props) {
@@ -16,25 +17,24 @@ class PostArea extends React.Component{
         // throttle
         this.handleScroll = throttle(this.handleScroll,16);
 
-        /* help to get scroll direction */
+        /* used to save current position, help to get scroll direction */
         this.lastScroll = 0;
-        this.lock = false;
         this.state = { firstIndex: 0 };
     }
 
     componentDidMount() {
-        document.getElementById('mainContent').addEventListener('scroll', this.handleScroll, { passive: true })
+        document.getElementById('mainContent').addEventListener('scroll', this.handleScroll, { passive: true });
     }
 
     componentWillUnmount() {
-        document.getElementById('mainContent').removeEventListener('scroll', this.handleScroll)
+        document.getElementById('mainContent').removeEventListener('scroll', this.handleScroll);
     }
 
     handleScroll = (e) => {
         if(this.props.posts.length < 14){
             return;
         }
-        // load this every time in case screen size changes
+        // document height, load this every time in case screen size changes
         const documentY = document.documentElement.offsetHeight;
 
         const currentScroll = e.target.scrollTop; // Get Current Scroll Value
@@ -42,6 +42,7 @@ class PostArea extends React.Component{
             // scroll down
             this.lastScroll = currentScroll;
 
+            // if last element get into view, load more
             const lastOneY =  document.getElementById('LastOne')?.getBoundingClientRect().y;
             if(lastOneY && lastOneY < documentY){
                 if(this.props.posts.length - 12> this.state.firstIndex) {
@@ -54,6 +55,7 @@ class PostArea extends React.Component{
             // scroll up
             this.lastScroll = currentScroll;
 
+            // if first element get into view, load more
             const firstOneY =  document.getElementById('FirstOne')?.getBoundingClientRect().y;
             if(firstOneY && firstOneY > 0){
                 if(this.state.firstIndex > 2) {
@@ -100,7 +102,7 @@ const ContentPostAreaInner = () => {
             postAreaRef.current.handleReset();
             document.getElementById('mainContent').scroll(0, 0);
         }
-    })
+    });
 
     if(loading){
         return <Loading/>;
@@ -129,13 +131,15 @@ const ContentPostAreaInner = () => {
     }
 
     if(context.keyword){
-        posts = posts.filter(p => p.title.includes(context.keyword)||p.content.includes(context.keyword)||p.username.includes(context.keyword));
+        // ignore cases
+        const keyword = context.keyword.toLowerCase();
+        posts = posts.filter(p => p.title.toLowerCase().includes(keyword)||p.content.toLowerCase().includes(keyword)||p.username.toLowerCase().includes(keyword));
     }
 
     return(
         <PostArea ref={ postAreaRef } posts={ posts }/>
     )
-}
+};
 
 class ContentPostArea extends React.Component{
     constructor(props) {
@@ -144,7 +148,7 @@ class ContentPostArea extends React.Component{
         this.state = { shouldRender: false };
     }
 
-    // delay render, allow other components render first
+    // delay expensive render, allow other components render first
     componentDidMount() {
         window.requestAnimationFrame(() => {
             window.requestAnimationFrame(() => this.setState({ shouldRender: true }))

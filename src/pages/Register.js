@@ -1,13 +1,15 @@
 import { useState } from "react";
-import {Link, Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import md5 from "md5";
 
-import {REGISTER_MUTATION} from "./graphql/mutations";
-import { usernameValid, passwordValid } from "./utils/inputValidate";
 import '../styles/Register.css';
 import appIcon from "./sources/appIcon.png";
+
 import Loading from "./components/Loading";
+
+import { REGISTER_MUTATION } from "./graphql/mutations";
+import { usernameValid, passwordValid } from "./utils/inputValidate";
 
 
 const Register = () => {
@@ -102,7 +104,7 @@ const Register = () => {
 
         // setState
         setRegisterInfo(newRegisterInfo);
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -114,11 +116,11 @@ const Register = () => {
 
         await register({
             variables: {
-                // send encrypted password
+                // Send encrypted password
                 registerUserInput: { username: registerInfo.username, password: md5(registerInfo.password) }
             }
         });
-    }
+    };
 
     /* User is verified, redirect to main page */
     if(registerInfo.verified){
@@ -167,6 +169,6 @@ const Register = () => {
             }
         </div>
     );
-}
+};
 
 export default Register;

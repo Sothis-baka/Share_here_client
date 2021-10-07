@@ -1,9 +1,12 @@
-import React, {useState} from "react";
-import {useMutation} from "@apollo/client";
-import {DELETE_REPLY} from "../graphql/mutations";
+import React, { useState } from "react";
+import { useMutation } from "@apollo/client";
 import {Redirect} from "react-router-dom";
+
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+
+import { DELETE_REPLY } from "../graphql/mutations";
+
 
 const ContentBtnDeleteReply = ({ replyId }) => {
     const [rejected, setRejected] = useState(false);

@@ -1,11 +1,12 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-import { FETCH_REPLIES_QUERY } from "../graphql/queries";
 import ContentReplyInput from "./ContentReplyInput";
 import ContentSingleReply from "./ContentSingleReply";
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+
+import { FETCH_REPLIES_QUERY } from "../graphql/queries";
 
 const ContentRepliesInner = ({ postId }) => {
     const { loading, error, data } = useQuery(FETCH_REPLIES_QUERY, {
@@ -42,10 +43,11 @@ class ContentReplies extends React.PureComponent{
         };
     }
 
+    // delay expensive render
     componentDidMount() {
         window.requestAnimationFrame(() => {
-            window.requestAnimationFrame(() => this.setState({ loadReplies: true }))
-        })
+            window.requestAnimationFrame(() => this.setState({ loadReplies: true }));
+        });
     }
 
     render() {
@@ -56,8 +58,6 @@ class ContentReplies extends React.PureComponent{
             </div>
         )
     }
-
-
 }
 
 export default ContentReplies;

@@ -5,6 +5,7 @@ import { setContext } from '@apollo/client/link/context';
 
 import App from './App';
 
+/* backend server uri, should be set up in env file */
 const httpLink = createHttpLink({ uri: process.env.REACT_APP_Server_Uri });
 
 const authLink = setContext((_, { headers }) => {
@@ -16,7 +17,7 @@ const authLink = setContext((_, { headers }) => {
             ...headers,
             authorization: token ? `Bearer ${token}` : "",
         }
-    }
+    };
 });
 
 const client = new ApolloClient({

@@ -10,6 +10,6 @@ const Content = () => {
             <ContentPostArea/>
         </div>
     );
-}
+};
 
 export default React.memo(Content);

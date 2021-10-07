@@ -3,10 +3,13 @@ import { Link, Redirect } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import md5 from "md5";
 
-import { LOGIN_MUTATION } from "./graphql/mutations";
 import '../styles/Login.css';
 import appIcon from "./sources/appIcon.png";
+
 import Loading from "./components/Loading";
+
+import { LOGIN_MUTATION } from "./graphql/mutations";
+
 
 const Login = () => {
     const [loginInfo, setLoginInfo] = useState({
@@ -42,7 +45,7 @@ const Login = () => {
         }else {
             setLoginInfo({ ...loginInfo, password: e.target.value });
         }
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -54,11 +57,11 @@ const Login = () => {
 
         await login({
             variables: {
-                // send encrypted password
+                // Send encrypted password
                 loginUserInput: { username: loginInfo.username, password: md5(loginInfo.password) }
             }
         });
-    }
+    };
 
     /* User is verified, redirect to main page */
     if(loginInfo.verified){

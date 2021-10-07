@@ -1,6 +1,7 @@
 import React from "react";
 
 import ContentPostCardExpansion from "./ContentPostCardExpansion";
+
 import getDisplayTime from "../utils/getDisplayTime";
 
 class ContentPostCard extends React.Component{
@@ -15,10 +16,10 @@ class ContentPostCard extends React.Component{
     }
 
     handleExpand = () => {
-        const { expand } = this.state;
-        this.setState({ expand: !expand });
+        this.setState({ expand: !this.state.expand });
     }
 
+    /* manually scroll event for timeline click */
     handleScroll = (e) => {
         const mainContent = document.getElementById('mainContent');
 
@@ -54,8 +55,8 @@ class ContentPostCard extends React.Component{
 
     render() {
         const post = this.props.post;
-        const { expand } =  this.state;
         const id = this.props.id;
+        const expand =  this.state.expand;
 
         return (
             <div className={'mod postCard' + (expand?" expand":"")} onClick={ expand ? null : this.handleExpand } id={ id }>

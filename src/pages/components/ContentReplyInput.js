@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { REPLY } from "../graphql/mutations";
+
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
-import {Redirect} from "react-router-dom";
+
+import { REPLY } from "../graphql/mutations";
 
 const ContentReplyInput = ({ postId }) => {
     const [replyInput, setReplyInput] = useState({
@@ -84,12 +86,12 @@ const ContentReplyInput = ({ postId }) => {
                 <small>{ replyInput.contentValid ? null : "Wow so much to say, split them into comment!" }</small>
             </div>
             <div className='right'>
-                <input className={'homeBtn replyBtn' + (loading ? " disabled" : "")} type='submit' value='Reply'/>
+                <input className='homeBtn replyBtn' type='submit' value='Reply'/>
             </div>
-            { loading ? <Loading/> : null }
-            { error ? <ErrorTip text="Network Error!"/>: null }
+            { loading && <Loading/> }
+            { error && <ErrorTip text="Network Error!"/> }
         </form>
     );
-}
+};
 
-export default ContentReplyInput;
+export default React.memo(ContentReplyInput);

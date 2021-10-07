@@ -1,6 +1,7 @@
 import React from "react";
 
 import '../styles/Home.css';
+
 import Nav from "./components/Nav";
 import Content from "./components/Content";
 
@@ -44,7 +45,6 @@ class Home extends React.Component{
                     <Nav username={ username } handleFilterRule={ this.handleFilterRule }/>
                     <Content/>
                 </div>
-
             </FilterProvider>
         );
     }

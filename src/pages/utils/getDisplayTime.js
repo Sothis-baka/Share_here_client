@@ -1,5 +1,6 @@
 const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat'];
 
+/* translate time in millisecond to display time */
 const getDisplayTime = (time) => {
     if(!time){
         return null;

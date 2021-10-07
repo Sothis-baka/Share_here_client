@@ -8,6 +8,8 @@ function matchExact(r, str) {
     return match && str === match[0];
 }
 
+/* helper functions to judge whether the input is valid */
+
 const usernameValid = (str) => {
     if(!str){
         return false;

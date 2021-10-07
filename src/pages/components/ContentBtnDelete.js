@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { DELETE_POST } from "../graphql/mutations";
-import {Redirect} from "react-router-dom";
+
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+
+import { DELETE_POST } from "../graphql/mutations";
+
 
 const ContentBtnDelete = ({ postId }) => {
     const [rejected, setRejected] = useState(false);
@@ -15,13 +18,13 @@ const ContentBtnDelete = ({ postId }) => {
                 setRejected(true);
             }else if(deletePost?.status === '404'){
                 // post doesn't exist anymore, shouldn't happen if database isn't directly touched.
-                // will refetch after the mutation
             }else if(deletePost?.status === '204'){
                 // Successful
             }
         },
+        // In any way it will refetch posts from the server to get the latest version
         refetchQueries: ['getPosts']
-    })
+    });
 
     const handleClick = async () => {
         // debounce
@@ -30,7 +33,7 @@ const ContentBtnDelete = ({ postId }) => {
         }
 
         await deletePost();
-    }
+    };
 
     if(rejected){
         return <Redirect to='/login'/>

@@ -1,15 +1,14 @@
 #registerWrapper{
     display: flex;
     flex-direction: column;
-
     align-items: center;
 }
 
 #registerWrapper h1{
+    margin: 1em;
+
     font-family: 'Dancing Script', cursive;
     font-size: 3.2em;
-
-    margin: 1em;
 }
 
 #registerFormWrapper{
@@ -22,7 +21,6 @@
 #registerFormWrapper .block{
     display: flex;
     flex-direction: column;
-
     align-items: center;
     justify-content: center;
 

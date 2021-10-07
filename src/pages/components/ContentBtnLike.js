@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { Redirect } from "react-router-dom";
 
-import { TOGGLE_LIKE_POST } from "../graphql/mutations";
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+
+import { TOGGLE_LIKE_POST } from "../graphql/mutations";
 
 const ContentBtnLike = ({ like, postId, updateLike }) => {
     const [rejected, setRejected] = useState(false);
@@ -16,6 +17,7 @@ const ContentBtnLike = ({ like, postId, updateLike }) => {
                 // rejected
                 setRejected(true);
             }else if(toggleLike?.status === '404'){
+                // post doesn't exist anymore
                 setNotFound(true);
             }else if(toggleLike?.status === '204'){
                 // success
@@ -33,6 +35,7 @@ const ContentBtnLike = ({ like, postId, updateLike }) => {
                         likes.push(postId);
                     }
                 }
+                // update user's like in localstorage
                 localStorage.setItem('user', JSON.stringify(user));
 
                 updateLike(newLike);

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 
-import { CREATE_POST } from "../graphql/mutations";
-import { Redirect } from "react-router-dom";
 import Loading from "./Loading";
 import ErrorTip from "./ErrorTip";
+
+import { CREATE_POST } from "../graphql/mutations";
+
 
 const ContentPostInput = () => {
     const [postInput, setPostInput] = useState({
@@ -59,7 +61,7 @@ const ContentPostInput = () => {
             }
         }
 
-        // save in state
+        // update state
         setPostInput(newPostInput);
     };
 
@@ -99,7 +101,7 @@ const ContentPostInput = () => {
                 </div>
             </div>
             <div className='right'>
-                <input id='postBtn' className={'homeBtn' + (loading ? " disabled" : "")} type='submit' value='Post'/>
+                <input id='postBtn' className='homeBtn' type='submit' value='Post'/>
             </div>
             { loading ? <Loading/> : null }
             { error ? <ErrorTip text="Network Error!"/>: null }
